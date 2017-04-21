@@ -5,6 +5,7 @@
 #include <iterator>
 #include <memory>
 #include <algorithm>
+#include <cstring>
 
 using namespace std;
 
@@ -25,6 +26,7 @@ struct Map
 	static const int player_start_x = 50, player_start_y = 50;
     enum Location
     {
+        UNKNOWN,
         GRAVEYARD,
         GRAVEYARD_GATES,
         KHATHARRS_MOMS_HOUSE,
@@ -33,6 +35,7 @@ struct Map
 	int x, y;
 	Map()
 	{
+        memset(map_location, UNKNOWN, max_width * max_height * sizeof(int));
 		x = 50;
 		y = 50;
 		map_location[50][50] = GRAVEYARD;
