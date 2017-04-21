@@ -72,6 +72,10 @@ private:
     int health;
 };
 
+struct Shogun : public Entity {
+  Shogun() : Entity("Shogibear", 100) {}
+};
+
 struct Item
 {
     virtual void apply(Entity* entity) = 0;
