@@ -20,6 +20,10 @@ vector<string> split(const string& str) {
     return tokens;
 }
 
+struct RoomObject
+{
+}
+
 struct Map
 {
 	static const int max_width = 100, max_height = 100;
