@@ -115,12 +115,14 @@ void apply(Entity* entity) override{entity->damage(Weapon);}string identify() co
 private: int Weapon;};//will add this to entity on my next commit. <.<
 
 /*
+struct ReallyFastSword : public Item
 struct TheFastcall : public Entity
 {
     TheFastcall() : Entity("The Fastcall", 22) {}
     virtual bool act(vector<string> commands) override
     {
     }
+};
 */
 
 struct Player : public Entity
