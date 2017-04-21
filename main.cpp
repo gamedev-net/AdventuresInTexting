@@ -131,19 +131,19 @@ struct Player : public Entity
 
     bool travel(string direction)
     {
-        switch (location)
+        switch (map.map_location[map.x][map.y])
         {
             case Map::GRAVEYARD:
                 if (direction == "north")
                 {
-                    location = Map::GRAVEYARD_GATES;
+					map.y++;
                     return true;
                 }
                 break;
             case Map::GRAVEYARD_GATES:
                 if (direction == "south")
                 {
-                    location = Map::GRAVEYARD;
+					map.y--;
                     return true;
                 }
                 break;
