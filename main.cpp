@@ -35,7 +35,7 @@ struct Map
 	int x, y;
 	Map()
 	{
-        memset(map_location, UNKNOWN, max_width * max_height * sizeof(int));
+        memset(map_location, UNKNOWN, sizeof(map_location));
 		x = 50;
 		y = 50;
 		map_location[50][50] = GRAVEYARD;
