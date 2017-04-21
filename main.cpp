@@ -105,6 +105,9 @@ struct HealthItem : public Item
 private:
     int healPower;
 };
+struct BlessedSword : public Item{BlessedSword(int Weapon) : Weapon(Weapon){}
+void apply(Entity* entity) override{entity->weapon(Weapon);}string identify() const override{stringstream ss; ss << "Hit (" << Weapon << ")";}
+private: int Weapon;};//will add this to entity on my next commit. <.<
 
 struct TheFastcall : public Entity { TheFastcall("The Fastcall", 22); };
 
