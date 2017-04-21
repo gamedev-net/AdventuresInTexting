@@ -123,6 +123,8 @@ struct Player : public Entity
             if (travel(commands[1]) == true)
             {
                 look();
+            } else {
+                cout << "Can't travel " << commands[1] << endl;
             }
             return true;
         }
