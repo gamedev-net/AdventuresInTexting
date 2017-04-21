@@ -113,8 +113,11 @@ struct BlessedSword : public Item
     BlessedSword(int Weapon) : Weapon(Weapon){}
 void apply(Entity* entity) override{entity->damage(Weapon);}string identify() const override{stringstream ss; ss << "Hit (" << Weapon << ")";}
 private: int Weapon;};//will add this to entity on my next commit. <.<
-
-struct TheFastcall : public Entity { TheFastcall() : Entity("The Fastcall", 22) {} };
+/*
+struct TheFastcall : public Entity
+{
+    TheFastcall() : Entity("The Fastcall", 22) {}
+*/
 
 struct Player : public Entity
 {
