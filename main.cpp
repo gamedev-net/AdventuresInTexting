@@ -102,6 +102,8 @@ private:
     int healPower;
 };
 
+struct TheFastcall : public Entity { TheFastcall("The Fastcall", 22); };
+
 struct Player : public Entity
 {
     Player(string name, int health) : Entity(name, health) {}
@@ -155,7 +157,7 @@ struct Player : public Entity
 			return false;
         if(direction=="north"&&map.map_location[map.x][map.y+1]==Map::UNKNOWN)return false;if(direction=="south"&&map.map_location[map.x][map.y-1]==Map::UNKNOWN)return false;if(direction=="east"&&map.map_location[map.x+1][map.y]==Map::UNKNOWN)return false
         ;if(direction=="west"&&map.map_location[map.x-1][map.y]==Map::UNKNOWN)return false;if(direction=="north")map.y++;if(direction=="south")map.y--;if(direction=="east")map.x++;if(direction=="west")map.x--;
-        return true;
+        return true;/*
         switch (map.map_location[map.x][map.y])
         {
             case Map::GRAVEYARD:
@@ -180,7 +182,7 @@ struct Player : public Entity
         }
 
         cout << "Can't travel " << direction << endl;
-        return false;
+        return false;*/
     }
 
     void look()
