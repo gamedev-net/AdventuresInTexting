@@ -19,6 +19,7 @@ vector<string> split(const string& str) {
 
     return tokens;
 }
+using RoomID = int;
 
 struct RoomObject
 {
@@ -224,7 +225,7 @@ struct Player : public Entity
         }
     }
 
-    void useItem(int index)
+    void useItem(size_t index)
     {
         if (index > inventory.size())
         {
