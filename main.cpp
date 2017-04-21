@@ -92,6 +92,9 @@ struct Player : public Entity
             look();
             return true;
         }
+        else if (commands.size() >= 2 && (commands[0] == "examine" || commands[0] == "x"))
+        {
+        }
         else if (commands.size() >= 2 && commands[0] == "go")
         {
             if (travel(commands[1]) == true)
