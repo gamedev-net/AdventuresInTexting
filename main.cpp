@@ -37,6 +37,7 @@ struct Map
 		y = 50;
 		map_location[50][50] = GRAVEYARD;
 		map_location[50][51] = GRAVEYARD_GATES;
+		map_location[49][49] = KHATHARRS_MOMS_HOUSE;
 	}
 };
 
@@ -133,6 +134,10 @@ struct Player : public Entity
 
     bool travel(string direction)
     {
+		if ((map.x <= 0 && direction == "west") || (map.x >= (map.max_width - 1) && direction == "east"))
+			return false;
+		if ((map.y <= 0 && direction == "south") || (map.y >= (map.max_width - 1) && direction == "north"))
+			return false;
         switch (map.map_location[map.x][map.y])
         {
             case Map::GRAVEYARD:
