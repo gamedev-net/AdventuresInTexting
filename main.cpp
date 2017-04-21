@@ -25,7 +25,9 @@ using RoomID = int;
 
 struct RoomObject
 {
+	vector<string> names;
 	string description;
+	bool visible;
 };
 
 struct Map
@@ -261,7 +263,7 @@ struct Room {
 	}
 	string description;
 	vector<Entity> entities;
-	unordered_map<string, RoomObject> objects;
+	vector<RoomObject> objects;
 	unordered_map<string, RoomID> exits;
 };
 
