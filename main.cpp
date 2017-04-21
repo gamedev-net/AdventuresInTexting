@@ -5,7 +5,6 @@
 #include <iterator>
 #include <memory>
 #include <algorithm>
-#include <window.h>
 
 using namespace std;
 
