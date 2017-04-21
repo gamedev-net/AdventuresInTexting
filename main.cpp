@@ -21,13 +21,15 @@ vector<string> split(const string& str) {
 
 struct Map
 {
+	static const int max_width = 100, max_height = 100;
+	static const int player_start_x = 50, player_start_y = 50;
     enum Location
     {
         GRAVEYARD,
         GRAVEYARD_GATES,
         KHATHARRS_MOMS_HOUSE,
     };
-	Location map_location[100][100];
+	Location map_location[max_width][max_height];
 	int x, y;
 	Map()
 	{
