@@ -155,6 +155,9 @@ struct Player : public Entity
                 }
                 break;
             case Map::KHATHARRS_MOMS_HOUSE:
+                if (direction == "north")
+                {
+                }
                 break;
         }
 
