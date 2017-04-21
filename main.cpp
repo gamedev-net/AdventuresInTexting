@@ -6,6 +6,7 @@
 #include <memory>
 #include <algorithm>
 #include <cstring>
+#include <unordered_map>
 
 using namespace std;
 
@@ -19,6 +20,7 @@ vector<string> split(const string& str) {
 
     return tokens;
 }
+
 using RoomID = int;
 
 struct RoomObject
@@ -242,6 +244,7 @@ struct Player : public Entity
 private:
     vector<shared_ptr<Item>> inventory;
 };
+struct Room { string description; vector<Entity> entities; vector<RoomObject> objects; unordered_map<string, RoomID> exits; };
 
 class Adventure
 {
