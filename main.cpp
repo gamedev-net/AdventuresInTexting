@@ -25,6 +25,7 @@ using RoomID = int;
 
 struct RoomObject
 {
+	string description;
 };
 
 struct Map
@@ -257,7 +258,7 @@ private:
 struct Room {
 	string description;
 	vector<Entity> entities;
-	vector<RoomObject> objects;
+	unordered_map<string, RoomObject> objects;
 	unordered_map<string, RoomID> exits;
 };
 
