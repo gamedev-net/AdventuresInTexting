@@ -34,6 +34,7 @@ struct Map
 		x = 50;
 		y = 50;
 		map_location[50][50] = GRAVEYARD;
+		map_location[50][51] = GRAVEYARD_GATES;
 	}
 };
 
@@ -59,7 +60,7 @@ struct Entity
     virtual bool act(vector<string> commands) = 0;
 
     string name;
-    Map::Location location;
+    Map map;
 
 private:
     int health;
