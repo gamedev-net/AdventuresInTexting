@@ -24,6 +24,7 @@ struct Map
     {
         GRAVEYARD,
         GRAVEYARD_GATES,
+        KHATHARRS_MOMS_HOUSE,
     };
 };
 
@@ -135,6 +136,8 @@ struct Player : public Entity
                     location = Map::GRAVEYARD;
                     return true;
                 }
+                break;
+            case Map::KHATHARRS_MOMS_HOUSE:
                 break;
         }
 
