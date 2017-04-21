@@ -256,6 +256,9 @@ private:
 };
 
 struct Room {
+	string describe() {
+		return ""; //description << list entites, list items, list exits
+	}
 	string description;
 	vector<Entity> entities;
 	unordered_map<string, RoomObject> objects;
