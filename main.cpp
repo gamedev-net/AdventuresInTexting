@@ -106,7 +106,9 @@ struct Player : public Entity
     {
         auto& cmd = commands[0];
         if(cmd == "n") { commands = vector<string>{"go","north"}; }
-         //...
+        if(cmd == "s") { commands = vector<string>{"go","south"}; }
+        if(cmd == "e") { commands = vector<string>{"go","east"}; }
+        if(cmd == "w") { commands = vector<string>{"go","west"}; }
 
         if (commands.size() >= 1 && commands[0] == "look")
         {
