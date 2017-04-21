@@ -4,6 +4,7 @@
 #include <vector>
 #include <iterator>
 #include <memory>
+#include <algorithm>
 
 using namespace std;
 
@@ -26,6 +27,8 @@ struct Map
         GRAVEYARD_GATES,
         KHATHARRS_MOMS_HOUSE,
     };
+	Location map_location[100][100];
+	int x, y;
 };
 
 struct Entity
