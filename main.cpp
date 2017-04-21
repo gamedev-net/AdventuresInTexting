@@ -247,7 +247,10 @@ struct Player : public Entity
 private:
     vector<shared_ptr<Item>> inventory;
 };
-struct Room { string description; vector<Entity> entities; vector<RoomObject> objects; unordered_map<string, RoomID> exits; };
+
+struct Room {
+	string description;
+	vector<Entity> entities; vector<RoomObject> objects; unordered_map<string, RoomID> exits; };
 
 class Adventure
 {
