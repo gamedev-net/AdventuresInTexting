@@ -101,6 +101,10 @@ struct Player : public Entity
 
     virtual bool act(vector<string> commands) override
     {
+        auto& cmd = commands[0];
+        if(cmd == "n") { commands = vector<string>{"go","north"}; }
+         //...
+
         if (commands.size() >= 1 && commands[0] == "look")
         {
             look();
