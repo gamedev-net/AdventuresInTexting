@@ -157,7 +157,7 @@ struct Player : public Entity
 
     void look()
     {
-        switch (location)
+        switch (map.map_location[map.x][map.y])
         {
             case Map::GRAVEYARD:
                 cout << "A thick layer of fog covers the graveyard soil. Tombstones jut out here and there and an eerie willow tree looms over your head, obstructing the full moon partially. Off in the distance you see the northern gates -- the only entrance into this forsaken place." << endl;
@@ -211,7 +211,6 @@ public:
         getline(cin, command);
 
         Player player(command, 100);
-        player.location = Map::GRAVEYARD;
         player.giveItem(make_shared<HealthItem>(20));
 
         cout << player.name << "! Your presence defiles these sacred grounds. Beware the soil upon which you step, for it will claim you sooner rather than later." << endl;
