@@ -254,7 +254,9 @@ private:
 
 struct Room {
 	string description;
-	vector<Entity> entities; vector<RoomObject> objects; unordered_map<string, RoomID> exits; };
+	vector<Entity> entities;
+	vector<RoomObject> objects;
+	unordered_map<string, RoomID> exits; };
 
 class Adventure
 {
