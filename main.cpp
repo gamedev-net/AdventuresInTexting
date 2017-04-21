@@ -37,7 +37,7 @@ struct Map
 		y = 50;
 		map_location[50][50] = GRAVEYARD;
 		map_location[50][51] = GRAVEYARD_GATES;
-		map_location[49][49] = KHATHARRS_MOMS_HOUSE;
+		map_location[50][52] = KHATHARRS_MOMS_HOUSE;
 	}
 };
 
@@ -153,10 +153,10 @@ struct Player : public Entity
 					map.y--;
                     return true;
                 }
-                break;
-            case Map::KHATHARRS_MOMS_HOUSE:
                 if (direction == "north")
                 {
+                    map.y++;
+                    return true;
                 }
                 break;
         }
