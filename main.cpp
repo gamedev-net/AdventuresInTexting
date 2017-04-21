@@ -29,6 +29,9 @@ struct Map
     };
 	Location map_location[100][100];
 	int x, y;
+	Map()
+	{
+	}
 };
 
 struct Entity
