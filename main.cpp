@@ -31,6 +31,9 @@ struct Map
 	int x, y;
 	Map()
 	{
+		x = 50;
+		y = 50;
+		map_location[50][50] = GRAVEYARD;
 	}
 };
 
