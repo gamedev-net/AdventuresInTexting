@@ -361,9 +361,11 @@ struct Player : public Entity
 		*/
     }
 
-    void giveItem(shared_ptr<Item> item)
+    bool addItem(shared_ptr<Item> item)
     {
+		if (inventory.size() >= max_inventory_size) return false;
         inventory.push_back(item);
+		return true;
     }
 
     void showItems()
@@ -392,6 +394,7 @@ struct Player : public Entity
     RoomID currentLocation;
 
 private:
+	static const size_t max_inventory_size = 100;
     vector<shared_ptr<Item>> inventory;
     unordered_map<string, function<bool(Player&, vector<string>)>> actions;
 
@@ -410,7 +413,7 @@ public:
         getline(cin, command);
 
         Player player(command, 100);
-        player.giveItem(make_shared<HealthItem>(20));
+        player.addItem(make_shared<HealthItem>(20));
 
         cout << player.name << "! Your presence defiles these sacred grounds. Beware the soil upon which you step, for it will claim you sooner rather than later." << endl;
         player.look();
