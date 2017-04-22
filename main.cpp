@@ -183,6 +183,22 @@ struct KhatharrsMomsHouse : public Room
     }
 };
 
+struct GatesOfShogun : public Room
+{
+    GatesOfShogun() : Room(Map::Location::GATES_OF_SHOGUN, "SHOGUN!")
+    {
+        exits["west"] = Map::Location::FOGGY_FOREST;
+    }
+};
+
+struct FoggyForest : public Room
+{
+    FoggyForest() : Room(Map::Location::FOGGY_FOREST, "Dark creepy forest")
+    {
+
+    }
+};
+
 typedef bool (*actionHandlerBYEBYENAMECOLLISION)(vector<string> commands); // unused, but we can't technically delete this, and commenting it out is just cheating.
 
 struct Player : public Entity
@@ -193,9 +209,9 @@ struct Player : public Entity
         map.rooms[Map::Location::GRAVEYARD] = make_unique<Graveyard>();
         map.rooms[Map::Location::GRAVEYARD_GATES] = make_unique<GraveyardGates>();
         map.rooms[Map::Location::KHATHARRS_MOMS_HOUSE] = make_unique<KhatharrsMomsHouse>();
-        map.rooms[Map::Location::GATES_OF_SHOGUN] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Gates of shogun"));
+        map.rooms[Map::Location::GATES_OF_SHOGUN] = make_unique<GatesOfShogun>();
         map.rooms[Map::Location::HOUSE_OF_BLUES] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Blues"));
-        map.rooms[Map::Location::FOGGY_FOREST] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Forest"));
+        map.rooms[Map::Location::FOGGY_FOREST] = make_unique<FoggyForest>();
     }
 
     bool act(vector<string> commands) override
