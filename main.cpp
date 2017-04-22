@@ -31,6 +31,8 @@ struct RoomObject
 	bool visible;
 };
 
+struct Room;
+
 struct Map
 {
 	static const int max_width = 100, max_height = 100;
@@ -59,6 +61,8 @@ struct Map
 		map_location[50][53] = HOUSE_OF_BLUES;
 		map_location[50][54] = FOGGY_FOREST;*/
 	}
+
+  unordered_map<RoomID, unique_ptr<Room>> rooms;
 };
 
 struct Entity
