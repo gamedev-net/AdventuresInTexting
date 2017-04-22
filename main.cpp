@@ -145,11 +145,13 @@ struct TheFastcall : public Entity
 struct Khawk : public Entity
 {
     Khawk() : Entity("Khawk", INT_MAX) {}
+    bool act(vector<string> commands) {}
 };
 
 struct MyopicRhino : public Entity
 {
     MyopicRhino(): Entity("Nearsighted One", INT_MAX) {}
+    bool act(vector<string> commands) {}
 };
 
 
