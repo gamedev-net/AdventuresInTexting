@@ -280,7 +280,7 @@ struct Room {
 	Room(RoomID idnum, string i_description) : ID(idnum) {
 		description = i_description;
 	}
-	string describe() {
+	virtual string describe() {
     stringstream ss;
     ss << description << "\n";
     ss << "Entities: "; for(auto& ent : entities) { ss << ent->name << ", "; }; ss << "\n"; //make this look nice later
@@ -288,11 +288,11 @@ struct Room {
     ss << "Obvious exits: "; for(auto kv : exits) { ss << kv.first << ", "; } ss << "\n"; //...
 		return ss.str();
 	}
-  const RoomID ID;
-	string description;
+  const RoomID ID; //unique id of the room
+	string description; //general description of the room for the player
 	vector<unique_ptr<Entity>> entities;
 	vector<RoomObject> objects;
-	unordered_map<string, RoomID> exits;
+	unordered_map<string, RoomID> exits; //keys are things like "north", "down", "cave", etc.
 };
 
 class Adventure
