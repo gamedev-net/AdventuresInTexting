@@ -222,20 +222,18 @@ struct Player : public Entity
         if(cmd == "e") { commands = vector<string>{"go","east"}; }
         if(cmd == "w") { commands = vector<string>{"go","west"}; }
 
-        if (commands.size() >= 1 && commands[0] == "look")
+        /*if (commands.size() >= 1 && commands[0] == "look")
         {
             look();
             return true;
-        }
+        }*/
         else if (commands.size() >= 2 && (commands[0] == "examine" || commands[0] == "x"))
         {
         }
         else if (commands.size() >= 2 && commands[0] == "go")
         {
-            if (travel(commands[1]) == true)
+            if (!travel(commands[1]))
             {
-                look();
-            } else {
                 cout << "Can't travel " << commands[1] << endl;
             }
             return true;
