@@ -128,6 +128,8 @@ struct TheFastcall : public Entity
 };
 */
 
+typedef bool (*actionHandler)(vector<string> commands);
+
 struct Player : public Entity
 {
     Player(string name, int health) : Entity(name, health) {}
@@ -255,6 +257,7 @@ struct Player : public Entity
 
 private:
     vector<shared_ptr<Item>> inventory;
+    unordered_map<string, actionHandler> actions;
 };
 
 struct Room {
