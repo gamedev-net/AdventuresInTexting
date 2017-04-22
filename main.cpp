@@ -187,7 +187,8 @@ struct GraveyardGates : public Room
 {
     GraveyardGates() : Room(Map::Location::GRAVEYARD_GATES, "For many centuries these gates have stood the test of time. The gateway to the afterlife. Inside the graveyard small hills stretch endlessly, littered with thousands of tombstones. You see a willow tree south of the gates. Outisde, north, you see a very large house.")
     {
-        exits["east"] = Map::Location::KHATHARRS_MOMS_HOUSE;
+        exits["north"] = Map::Location::KHATHARRS_MOMS_HOUSE;
+        exits["south"] = Map::Location::GRAVEYARD;
     }
 };
 
@@ -210,7 +211,7 @@ struct GatesOfShogun : public Room
 
 struct FoggyForest : public Room
 {
-    FoggyForest() : Room(Map::Location::FOGGY_FOREST, "Dark creepy forest")
+    FoggyForest() : Room(Map::Location::FOGGY_FOREST, "Not much is known about this forest. Only that a wolf howls 3 times in the night, every night. And those who enter have never been known to return. Do you risk your life for adventure?")
     {
       exits["east"] = Map::Location::GATES_OF_SHOGUN;
     }
@@ -218,7 +219,7 @@ struct FoggyForest : public Room
 
 struct HouseOfBlues : public Room
 {
-    HouseOfBlues() : Room(Map::Location::HOUSE_OF_BLUES, "Music and fried southern US food")
+    HouseOfBlues() : Room(Map::Location::HOUSE_OF_BLUES, "This is a place where men shed tears and pour out emotion! Of course, after 2 or 3 pints of the finest ale. The miscreants who frequent cavernous house know the warmth of beds not their own. Doors sing with laughter and a timely cry or two. Will you enter to find love?")
     {
         exits["north"] = Map::Location::KHATHARRS_MOMS_HOUSE;
     }
