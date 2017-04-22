@@ -268,7 +268,7 @@ private:
 };
 
 struct Room {
-	Room(string i_description) {
+	Room(RoomID idnum, string i_description) : ID(idnum) {
 		description = i_description;
 	}
 	string describe() {
@@ -279,6 +279,7 @@ struct Room {
     ss << "Obvious exits: "; for(auto kv : exits) { ss << kv.first << ", "; } ss << "\n"; //...
 		return ss.str();
 	}
+  const RoomID ID;
 	string description;
 	vector<unique_ptr<Entity>> entities;
 	vector<RoomObject> objects;
