@@ -52,12 +52,12 @@ struct Map
         memset(map_location, UNKNOWN, sizeof(map_location));
 	x = 50;
 	y = 50;
-	map_location[50][50] = GRAVEYARD;
+	/*map_location[50][50] = GRAVEYARD;
 	map_location[50][51] = GRAVEYARD_GATES;
 	map_location[50][52] = KHATHARRS_MOMS_HOUSE;
 	map_location[50][52] = GATES_OF_SHOGUN;
 	map_location[50][53] = HOUSE_OF_BLUES;
-	map_location[50][54] = FOGGY_FOREST;
+	map_location[50][54] = FOGGY_FOREST;*/
 	}
 };
 
@@ -268,6 +268,9 @@ private:
 };
 
 struct Room {
+	Room(string i_description) {
+		description = i_description;
+	}
 	string describe() {
     stringstream ss;
     ss << description << "\n";
