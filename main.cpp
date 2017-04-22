@@ -280,6 +280,8 @@ struct Player : public Entity
 
     void look()
     {
+		cout << map.rooms.at(currentLocation)->describe() << endl;
+		/*
         switch (map.map_location[map.x][map.y])
         {
             case Map::GRAVEYARD:
@@ -301,6 +303,7 @@ struct Player : public Entity
 		cout << "Not much is known about this forest. Only that a wolf howls 3 times in the night, every night. And those who enter have never been known to return. Do you risk your life for adventure?" << endl;
 		break;
         }
+		*/
     }
 
     void giveItem(shared_ptr<Item> item)
