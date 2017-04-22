@@ -8,6 +8,7 @@
 #include <cstring>
 #include <unordered_map>
 #include <functional>
+#include <stdint.h>
 
 using namespace std;
 
@@ -45,7 +46,9 @@ struct Map
 		KHATHARRS_MOMS_HOUSE,
 		GATES_OF_SHOGUN,
 		HOUSE_OF_BLUES,
-		FOGGY_FOREST
+		FOGGY_FOREST,
+        HOUSE_OF_GDNET = 999999,
+        MAX_LOCATIONS
     	};
 	Location map_location[max_width][max_height];
 	int x, y;
@@ -139,6 +142,16 @@ struct TheFastcall : public Entity
 };
 */
 
+struct Khawk : public Entity
+{
+    Khawk() : Entity("Khawk", INT_MAX) {}
+};
+
+struct MyopicRhino : public Entity
+{
+    MyopicRhino(): Entity("Nearsighted One", INT_MAX) {}
+};
+
 
 struct Room {
     Room(RoomID idnum, string i_description) : ID(idnum) {
@@ -199,6 +212,24 @@ struct FoggyForest : public Room
     }
 };
 
+struct HouseOfBlues : public Room
+{
+    HouseOfBlues() : Room(Map::Location::HOUSE_OF_BLUES, "Music and fried southern US food")
+    {
+        exits["north"] = Map::Location::KHATHARRS_MOMS_HOUSE;
+    }
+};
+
+struct HouseOfGDNet : public Room
+{
+    HouseOfGDNet() : Room(Map::Location::HOUSE_OF_GDNET, "Where else would you want to be?")
+    {
+        exits["none"] = Map::Location::HOUSE_OF_GDNET;
+        entities.push_back(make_unique<Khawk>());
+        entities.push_back(make_unique<MyopicRhino>());
+    }
+};
+
 typedef bool (*actionHandlerBYEBYENAMECOLLISION)(vector<string> commands); // unused, but we can't technically delete this, and commenting it out is just cheating.
 
 struct Player : public Entity
@@ -210,7 +241,7 @@ struct Player : public Entity
         map.rooms[Map::Location::GRAVEYARD_GATES] = make_unique<GraveyardGates>();
         map.rooms[Map::Location::KHATHARRS_MOMS_HOUSE] = make_unique<KhatharrsMomsHouse>();
         map.rooms[Map::Location::GATES_OF_SHOGUN] = make_unique<GatesOfShogun>();
-        map.rooms[Map::Location::HOUSE_OF_BLUES] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Blues"));
+        map.rooms[Map::Location::HOUSE_OF_BLUES] = make_unique<HouseOfBlues>();
         map.rooms[Map::Location::FOGGY_FOREST] = make_unique<FoggyForest>();
     }
 
