@@ -159,6 +159,11 @@ struct Room {
     unordered_map<string, RoomID> exits; //keys are things like "north", "down", "cave", etc.
 };
 
+struct Graveyard : public Room
+{
+    Graveyard() : Room(Map::Location::GRAVEYARD, "The graveyard") {}
+};
+
 typedef bool (*actionHandlerBYEBYENAMECOLLISION)(vector<string> commands); // unused, but we can't technically delete this, and commenting it out is just cheating.
 
 struct Player : public Entity
