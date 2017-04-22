@@ -35,26 +35,29 @@ struct Map
 {
 	static const int max_width = 100, max_height = 100;
 	static const int player_start_x = 50, player_start_y = 50;
-    enum Location
-    {
-        UNKNOWN,
-        GRAVEYARD,
-        GRAVEYARD_GATES,
-        KHATHARRS_MOMS_HOUSE,
+        enum Location
+        {
+	UNKNOWN,
+	GRAVEYARD,
+	GRAVEYARD_GATES,
+	KHATHARRS_MOMS_HOUSE,
 	GATES_OF_SHOGUN,
 	HOUSE_OF_BLUES,
 	FOGGY_FOREST
-    };
+        };
 	Location map_location[max_width][max_height];
 	int x, y;
 	Map()
 	{
         memset(map_location, UNKNOWN, sizeof(map_location));
-		x = 50;
-		y = 50;
-		map_location[50][50] = GRAVEYARD;
-		map_location[50][51] = GRAVEYARD_GATES;
-		map_location[50][52] = KHATHARRS_MOMS_HOUSE;
+	x = 50;
+	y = 50;
+	map_location[50][50] = GRAVEYARD;
+	map_location[50][51] = GRAVEYARD_GATES;
+	map_location[50][52] = KHATHARRS_MOMS_HOUSE;
+	map_location[50][52] = GATES_OF_SHOGUN;
+	map_location[50][53] = HOUSE_OF_BLUES;
+	map_location[50][54] = FOGGY_FOREST;
 	}
 };
 
