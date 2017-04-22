@@ -98,6 +98,7 @@ private:
 
 struct Shogun : public Entity {
   Shogun() : Entity("Shogibear", 100) {}
+  bool act(vector<string> commands) { return false; }
 };
 
 struct Item
@@ -203,6 +204,7 @@ struct GatesOfShogun : public Room
     GatesOfShogun() : Room(Map::Location::GATES_OF_SHOGUN, "SHOGUN!")
     {
         exits["west"] = Map::Location::FOGGY_FOREST;
+        entities.emplace_back(make_unique<Shogun>());
     }
 };
 
@@ -210,7 +212,7 @@ struct FoggyForest : public Room
 {
     FoggyForest() : Room(Map::Location::FOGGY_FOREST, "Dark creepy forest")
     {
-
+      exits["east"] = Map::Location::GATES_OF_SHOGUN;
     }
 };
 
