@@ -412,8 +412,13 @@ private:
 
 bool smack(Player& p, vector<string> commands)
 {
-    if (commands.size() >= 2) { cout << "You smack " << commands[1] << " with righteous indignation!"; return true; }
+    if (commands.size() >= 2) { cout << "You smack " << commands[1] << " with righteous indignation!" << endl; return true; }
     else { return false; }
+}
+
+bool look(Player& player, vector<string> commands)
+{
+    player.look(); return true;
 }
 
 
