@@ -35,8 +35,8 @@ struct Room;
 
 struct Map
 {
-	static const int max_width = 100, max_height = 100;
-	static const int player_start_x = 50, player_start_y = 50;
+	/*static const int max_width = 100, max_height = 100;
+	static const int player_start_x = 50, player_start_y = 50;*/
     	enum Location
     	{
 		UNKNOWN,
@@ -47,11 +47,11 @@ struct Map
 		HOUSE_OF_BLUES,
 		FOGGY_FOREST
     	};
-	Location map_location[max_width][max_height];
-	int x, y;
+	/*Location map_location[max_width][max_height];
+	int x, y;*/
 	Map()
 	{
-        memset(map_location, UNKNOWN, sizeof(map_location));
+        /*memset(map_location, UNKNOWN, sizeof(map_location));
 		x = 50;
 		y = 50;
 		/*map_location[50][50] = GRAVEYARD;
