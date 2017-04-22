@@ -401,6 +401,12 @@ private:
     Map map;
 };
 
+bool smack(Player& p, vector<string> commands)
+{
+    if (commands.size() >= 2) { cout << "You smack " << commands[1] << " with righteous indignation!"; return true; }
+    else { return false; }
+}
+
 
 class Adventure
 {
