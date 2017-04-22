@@ -391,6 +391,10 @@ struct Player : public Entity
         inventory.erase(inventory.begin() + index - 1);
     }
 
+	void dropItem(size_t index)
+	{
+	}
+
     RoomID currentLocation;
 
 private:
