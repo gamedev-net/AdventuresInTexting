@@ -177,7 +177,7 @@ struct Room {
 
 struct Graveyard : public Room
 {
-    Graveyard() : Room(Map::Location::GRAVEYARD, "The graveyard") 
+    Graveyard() : Room(Map::Location::GRAVEYARD, "A thick layer of fog covers the graveyard soil. Tombstones jut out here and there and an eerie willow tree looms over your head, obstructing the full moon partially. Off in the distance you see the northern gates -- the only entrance into this forsaken place.") 
     {
         exits["north"] = Map::Location::GRAVEYARD_GATES;
     }
@@ -185,7 +185,7 @@ struct Graveyard : public Room
 
 struct GraveyardGates : public Room
 {
-    GraveyardGates() : Room(Map::Location::GRAVEYARD_GATES, "Graveyard gates")
+    GraveyardGates() : Room(Map::Location::GRAVEYARD_GATES, "For many centuries these gates have stood the test of time. The gateway to the afterlife. Inside the graveyard small hills stretch endlessly, littered with thousands of tombstones. You see a willow tree south of the gates. Outisde, north, you see a very large house.")
     {
         exits["east"] = Map::Location::KHATHARRS_MOMS_HOUSE;
     }
@@ -193,7 +193,7 @@ struct GraveyardGates : public Room
 
 struct KhatharrsMomsHouse : public Room
 {
-    KhatharrsMomsHouse() : Room(Map::Location::KHATHARRS_MOMS_HOUSE, "Moms house")
+    KhatharrsMomsHouse() : Room(Map::Location::KHATHARRS_MOMS_HOUSE, "The house is gigantic! What could possibly require such volume, such mass, such density? The house appears to not have any doors, but due to the strain from whatever is present inside, cracks have formed. You see a crack you might just fit into east.")
     {
         exits["south"] = Map::Location::FOGGY_FOREST;
     }
@@ -201,7 +201,7 @@ struct KhatharrsMomsHouse : public Room
 
 struct GatesOfShogun : public Room
 {
-    GatesOfShogun() : Room(Map::Location::GATES_OF_SHOGUN, "SHOGUN!")
+    GatesOfShogun() : Room(Map::Location::GATES_OF_SHOGUN, "Here lies the Gates of the Great Shogun. Creator of A1 weaponry; able to fork stakes by a mere glare. It is said that to look into his eyes is to see your future covered in darkness. As you notice the thick red stains which cover the gates, you are reminded of the villagers' tales of sacrifices hung from these very gates. The gate has no lock. Do you enter?")
     {
         exits["west"] = Map::Location::FOGGY_FOREST;
         entities.emplace_back(make_unique<Shogun>());
