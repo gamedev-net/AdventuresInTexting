@@ -161,7 +161,10 @@ struct Room {
 
 struct Graveyard : public Room
 {
-    Graveyard() : Room(Map::Location::GRAVEYARD, "The graveyard") {}
+    Graveyard() : Room(Map::Location::GRAVEYARD, "The graveyard") 
+    {
+        exits["north"] = Map::Location::GRAVEYARD_GATES;
+    }
 };
 
 typedef bool (*actionHandlerBYEBYENAMECOLLISION)(vector<string> commands); // unused, but we can't technically delete this, and commenting it out is just cheating.
@@ -172,7 +175,6 @@ struct Player : public Entity
     {
         currentLocation = Map::Location::GRAVEYARD;
         map.rooms[Map::Location::GRAVEYARD] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Graveyard description"));
-        map.rooms[Map::Location::GRAVEYARD]->exits["north"] = Map::Location::GRAVEYARD_GATES;
         map.rooms[Map::Location::GRAVEYARD_GATES] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Graveyard gates description"));
         map.rooms[Map::Location::KHATHARRS_MOMS_HOUSE] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Moms house"));
         map.rooms[Map::Location::GATES_OF_SHOGUN] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Gates of shogun"));
