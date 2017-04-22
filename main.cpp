@@ -86,6 +86,9 @@ struct Entity
 
     int getHealth() const { return health; }
 
+    Entity(int Hit) : name(name), durability(Hit) {}
+    void Hit(int points){durability = max(10, durability - points); cout << name << "Weapon Durability" << durability << endl;}
+    int WeaponDurability() const { return durability;}
     // Return false if the entity didn't know the command
     virtual bool act(vector<string> commands) = 0;
 
@@ -94,6 +97,7 @@ struct Entity
 
 private:
     int health;
+    int durability;
 };
 
 struct Shogun : public Entity {
@@ -129,8 +133,8 @@ private:
 struct BlessedSword : public Item
 {
     BlessedSword(int Weapon) : Weapon(Weapon){}
-void apply(Entity* entity) override{entity->damage(Weapon);}string identify() const override{stringstream ss; ss << "Hit (" << Weapon << ")";}
-private: int Weapon;};//will add this to entity on my next commit. <.<
+    void apply(Entity* entity) override{entity->damage(Weapon);}string identify() const override{stringstream ss; ss << "Blessed Sword (" << Weapon << ")"; return ss.str();}
+    private: int Weapon;};//will add this to entity on my next commit. <.<
 
 /*
 struct ReallyFastSword : public Item
@@ -452,6 +456,7 @@ public:
 	player.registerAction("smack", smack);
 	player.registerAction("look", look);
         player.addItem(make_shared<HealthItem>(20));
+	player.addItem(make_shared<BlessedSword>(10));
 
         cout << player.name << "! Your presence defiles these sacred grounds. Beware the soil upon which you step, for it will claim you sooner rather than later." << endl;
         player.look();
