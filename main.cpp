@@ -259,10 +259,11 @@ private:
 
 struct Room {
 	string describe() {
-		return ""; //description << list entites, list items, list exits
+    stringstream ss;
+		return ss.str(); //description << list entites, list items, list exits
 	}
 	string description;
-	vector<Entity> entities;
+	vector<unique_ptr<Entity>> entities;
 	vector<RoomObject> objects;
 	unordered_map<string, RoomID> exits;
 };
