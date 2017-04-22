@@ -145,7 +145,7 @@ struct Player : public Entity
 {
     Player(string name, int health) : Entity(name, health) {}
 
-    virtual bool act(vector<string> commands) override
+    bool act(vector<string> commands) override
     {
         auto cmd = commands[0];
         if(cmd == "n") { commands = vector<string>{"go","north"}; }
@@ -274,6 +274,8 @@ struct Player : public Entity
         inventory[index-1]->apply(this);
         inventory.erase(inventory.begin() + index - 1);
     }
+
+    RoomID currentLocation;
 
 private:
     vector<shared_ptr<Item>> inventory;
