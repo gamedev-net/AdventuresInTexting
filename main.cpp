@@ -262,12 +262,12 @@ struct Player : public Entity
         if(cmd == "e") { commands = vector<string>{"go","east"}; }
         if(cmd == "w") { commands = vector<string>{"go","west"}; }
 
-        if (commands.size() >= 1 && commands[0] == "look")
+        /*if (commands.size() >= 1 && commands[0] == "look")
         {
             look();
             return true;
         }
-        else if (commands.size() >= 2 && (commands[0] == "examine" || commands[0] == "x"))
+        else */if (commands.size() >= 2 && (commands[0] == "examine" || commands[0] == "x"))
         {
         }
         else if (commands.size() >= 2 && commands[0] == "go")
@@ -435,6 +435,7 @@ public:
 
         Player player(command, 100);
 	player.registerAction("smack", smack);
+	player.registerAction("look", look);
         player.addItem(make_shared<HealthItem>(20));
 
         cout << player.name << "! Your presence defiles these sacred grounds. Beware the soil upon which you step, for it will claim you sooner rather than later." << endl;
