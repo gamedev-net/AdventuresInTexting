@@ -8,7 +8,7 @@
 #include <cstring>
 #include <unordered_map>
 #include <functional>
-#include <stdint.h>
+#include <limits>
 
 using namespace std;
 
@@ -144,13 +144,13 @@ struct TheFastcall : public Entity
 
 struct Khawk : public Entity
 {
-    Khawk() : Entity("Khawk", INT_MAX) {}
+    Khawk() : Entity("Khawk", std::numeric_limits<int>::max()) {}
     bool act(vector<string> commands) {}
 };
 
 struct MyopicRhino : public Entity
 {
-    MyopicRhino(): Entity("Nearsighted One", INT_MAX) {}
+    MyopicRhino(): Entity("Nearsighted One", std::numeric_limits<int>::max()) {}
     bool act(vector<string> commands) {}
 };
 
