@@ -398,6 +398,11 @@ struct Player : public Entity
 
 	void dropItem(size_t index)
 	{
+		if (index > inventory.size())
+		{
+			cout << "Invalid index" << endl;
+			return;
+		}
 		inventory.erase(inventory.begin() + index - 1);
 	}
 
