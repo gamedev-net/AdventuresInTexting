@@ -143,7 +143,7 @@ struct Player : public Entity
 
     virtual bool act(vector<string> commands) override
     {
-        auto& cmd = commands[0];
+        auto cmd = commands[0];
         if(cmd == "n") { commands = vector<string>{"go","north"}; }
         if(cmd == "s") { commands = vector<string>{"go","south"}; }
         if(cmd == "e") { commands = vector<string>{"go","east"}; }
