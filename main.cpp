@@ -216,6 +216,9 @@ struct Player : public Entity
 
     bool travel(string direction)
     {
+		if (map.rooms.at(currentLocation)->exits.find(direction) == map.rooms.at(currentLocation)->exits.end())
+			return false;
+		currentLocation = map.rooms.at(currentLocation)->exits[direction];
 		if ((map.x <= 0 && direction == "west") || (map.x >= (map.max_width - 1) && direction == "east"))
 			return false;
 		if ((map.y <= 0 && direction == "south") || (map.y >= (map.max_width - 1) && direction == "north"))
