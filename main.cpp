@@ -271,7 +271,9 @@ struct Room {
 	string describe() {
     stringstream ss;
     ss << description << "\n";
-    ss << "Entities: "; for(auto& ent : entities) { ss << ent->name << ", "; } //make this look nice later
+    ss << "Entities: "; for(auto& ent : entities) { ss << ent->name << ", "; }; ss << "\n"; //make this look nice later
+    ss << "Items: "; for(auto& obj : objects) { ss << obj.names[0] << ", "; }; ss << "\n";  //make this look nice later
+    ss << "Obvious exits: "; for(auto kv : exits) { ss << kv.first << ", "; } ss << "\n"; //...
 		return ss.str();
 	}
 	string description;
