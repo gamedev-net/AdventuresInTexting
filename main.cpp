@@ -427,7 +427,7 @@ bool look(Player& player, vector<string> commands)
     player.look(); return true;
 }
 
-bool move(Player& player, vect4or<string> commands)
+bool move(Player& player, vector<string> commands)
 {
     if (commands.size() < 2) return false;
     player.travel(commands[1]); return true;
