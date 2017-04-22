@@ -196,7 +196,8 @@ struct KhatharrsMomsHouse : public Room
 {
     KhatharrsMomsHouse() : Room(Map::Location::KHATHARRS_MOMS_HOUSE, "The house is gigantic! What could possibly require such volume, such mass, such density? The house appears to not have any doors, but due to the strain from whatever is present inside, cracks have formed. You see a crack you might just fit into east.")
     {
-        exits["south"] = Map::Location::FOGGY_FOREST;
+        exits["south"] = Map::Location::GRAVEYARD_GATES;
+        exits["east"] = Map::Location::GATES_OF_SHOGUN;
     }
 };
 
@@ -204,7 +205,9 @@ struct GatesOfShogun : public Room
 {
     GatesOfShogun() : Room(Map::Location::GATES_OF_SHOGUN, "Here lies the Gates of the Great Shogun. Creator of A1 weaponry; able to fork stakes by a mere glare. It is said that to look into his eyes is to see your future covered in darkness. As you notice the thick red stains which cover the gates, you are reminded of the villagers' tales of sacrifices hung from these very gates. The gate has no lock. Do you enter?")
     {
-        exits["west"] = Map::Location::FOGGY_FOREST;
+        exits["west"] = Map::Location::KHATHARRS_MOMS_HOUSE;
+        exits["east"] = Map::Location::HOUSE_OF_BLUES;
+        exits["south"] = Map::Location::FOGGY_FOREST;
         entities.emplace_back(make_unique<Shogun>());
     }
 };
