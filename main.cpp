@@ -22,11 +22,15 @@ vector<string> split(const string& str) {
 
     return tokens;
 }
+
 string listThings(vector<string> things, bool articles = false) {
   stringstream ss;
-  for(size_t i = 0; i < things.size(); i++) { ss << things[i]; }
+  for(size_t i = 0; i < things.size(); i++) {
+    ss << things[i];
+  }
   return ss.str();
 } //work in progress
+
 using RoomID = int;
 
 struct RoomObject
