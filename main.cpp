@@ -139,11 +139,39 @@ struct TheFastcall : public Entity
 };
 */
 
+
+struct Room {
+    Room(RoomID idnum, string i_description) : ID(idnum) {
+        description = i_description;
+    }
+    virtual string describe() {
+        stringstream ss;
+        ss << description << "\n";
+        ss << "Entities: "; for (auto& ent : entities) { ss << ent->name << ", "; }; ss << "\n"; //make this look nice later
+        ss << "Items: "; for (auto& obj : objects) { ss << obj.names[0] << ", "; }; ss << "\n";  //make this look nice later
+        ss << "Obvious exits: "; for (auto kv : exits) { ss << kv.first << ", "; } ss << "\n"; //...
+        return ss.str();
+    }
+    const RoomID ID; //unique id of the room
+    string description; //general description of the room for the player
+    vector<unique_ptr<Entity>> entities;
+    vector<RoomObject> objects;
+    unordered_map<string, RoomID> exits; //keys are things like "north", "down", "cave", etc.
+};
+
 typedef bool (*actionHandlerBYEBYENAMECOLLISION)(vector<string> commands); // unused, but we can't technically delete this, and commenting it out is just cheating.
 
 struct Player : public Entity
 {
-    Player(string name, int health) : Entity(name, health) {}
+    Player(string name, int health) : Entity(name, health) 
+    {
+        map.rooms[Map::Location::GRAVEYARD] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Graveyard description"));
+        map.rooms[Map::Location::GRAVEYARD_GATES] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Graveyard gates description"));
+        map.rooms[Map::Location::KHATHARRS_MOMS_HOUSE] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Moms house"));
+        map.rooms[Map::Location::GATES_OF_SHOGUN] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Gates of shogun"));
+        map.rooms[Map::Location::HOUSE_OF_BLUES] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Blues"));
+        map.rooms[Map::Location::FOGGY_FOREST] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Forest"));
+    }
 
     virtual bool act(vector<string> commands) override
     {
@@ -282,24 +310,6 @@ private:
     Map map;
 };
 
-struct Room {
-	Room(RoomID idnum, string i_description) : ID(idnum) {
-		description = i_description;
-	}
-	virtual string describe() {
-    stringstream ss;
-    ss << description << "\n";
-    ss << "Entities: "; for(auto& ent : entities) { ss << ent->name << ", "; }; ss << "\n"; //make this look nice later
-    ss << "Items: "; for(auto& obj : objects) { ss << obj.names[0] << ", "; }; ss << "\n";  //make this look nice later
-    ss << "Obvious exits: "; for(auto kv : exits) { ss << kv.first << ", "; } ss << "\n"; //...
-		return ss.str();
-	}
-  const RoomID ID; //unique id of the room
-	string description; //general description of the room for the player
-	vector<unique_ptr<Entity>> entities;
-	vector<RoomObject> objects;
-	unordered_map<string, RoomID> exits; //keys are things like "north", "down", "cave", etc.
-};
 
 class Adventure
 {
