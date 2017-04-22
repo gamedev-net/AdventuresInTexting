@@ -41,6 +41,9 @@ struct Map
         GRAVEYARD,
         GRAVEYARD_GATES,
         KHATHARRS_MOMS_HOUSE,
+	GATES_OF_SHOGUN,
+	HOUSE_OF_BLUES,
+	FOGGY_FOREST
     };
 	Location map_location[max_width][max_height];
 	int x, y;
