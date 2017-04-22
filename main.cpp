@@ -220,7 +220,7 @@ struct FoggyForest : public Room
 {
     FoggyForest() : Room(Map::Location::FOGGY_FOREST, "Not much is known about this forest. Only that a wolf howls 3 times in the night, every night. And those who enter have never been known to return. Do you risk your life for adventure?")
     {
-      exits["east"] = Map::Location::GATES_OF_SHOGUN;
+      exits["north"] = Map::Location::GATES_OF_SHOGUN;
     }
 };
 
@@ -228,7 +228,7 @@ struct HouseOfBlues : public Room
 {
     HouseOfBlues() : Room(Map::Location::HOUSE_OF_BLUES, "This is a place where men shed tears and pour out emotion! Of course, after 2 or 3 pints of the finest ale. The miscreants who frequent cavernous house know the warmth of beds not their own. Doors sing with laughter and a timely cry or two. Will you enter to find love?")
     {
-        exits["north"] = Map::Location::KHATHARRS_MOMS_HOUSE;
+        exits["west"] = Map::Location::GATES_OF_SHOGUN;
     }
 };
 
@@ -236,7 +236,7 @@ struct HouseOfGDNet : public Room
 {
     HouseOfGDNet() : Room(Map::Location::HOUSE_OF_GDNET, "Where else would you want to be?")
     {
-        exits["none"] = Map::Location::HOUSE_OF_GDNET;
+        exits["up"] = Map::Location::FOGGY_FOREST;
         entities.push_back(make_unique<Khawk>());
         entities.push_back(make_unique<MyopicRhino>());
     }
