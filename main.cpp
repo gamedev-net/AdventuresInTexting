@@ -248,6 +248,11 @@ struct Player : public Entity
         map.rooms[Map::Location::HOUSE_OF_BLUES] = make_unique<HouseOfBlues>();
         map.rooms[Map::Location::FOGGY_FOREST] = make_unique<FoggyForest>();
     }
+    
+    void registerAction(string actionName, function<bool(Player& player, vector<string>)> actionFunction)
+    {
+        actions[actionName] = actionFunction;
+    }
 
     bool act(vector<string> commands) override
     {
@@ -423,6 +428,7 @@ public:
         getline(cin, command);
 
         Player player(command, 100);
+	player.registerAction("smack", smack);
         player.addItem(make_shared<HealthItem>(20));
 
         cout << player.name << "! Your presence defiles these sacred grounds. Beware the soil upon which you step, for it will claim you sooner rather than later." << endl;
