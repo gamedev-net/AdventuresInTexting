@@ -35,29 +35,29 @@ struct Map
 {
 	static const int max_width = 100, max_height = 100;
 	static const int player_start_x = 50, player_start_y = 50;
-        enum Location
-        {
-	UNKNOWN,
-	GRAVEYARD,
-	GRAVEYARD_GATES,
-	KHATHARRS_MOMS_HOUSE,
-	GATES_OF_SHOGUN,
-	HOUSE_OF_BLUES,
-	FOGGY_FOREST
-        };
+    enum Location
+    {
+		UNKNOWN,
+		GRAVEYARD,
+		GRAVEYARD_GATES,
+		KHATHARRS_MOMS_HOUSE,
+		GATES_OF_SHOGUN,
+		HOUSE_OF_BLUES,
+		FOGGY_FOREST
+    };
 	Location map_location[max_width][max_height];
 	int x, y;
 	Map()
 	{
         memset(map_location, UNKNOWN, sizeof(map_location));
-	x = 50;
-	y = 50;
-	map_location[50][50] = GRAVEYARD;
-	map_location[50][51] = GRAVEYARD_GATES;
-	map_location[50][52] = KHATHARRS_MOMS_HOUSE;
-	map_location[50][52] = GATES_OF_SHOGUN;
-	map_location[50][53] = HOUSE_OF_BLUES;
-	map_location[50][54] = FOGGY_FOREST;
+		x = 50;
+		y = 50;
+		map_location[50][50] = GRAVEYARD;
+		map_location[50][51] = GRAVEYARD_GATES;
+		map_location[50][52] = KHATHARRS_MOMS_HOUSE;
+		map_location[50][52] = GATES_OF_SHOGUN;
+		map_location[50][53] = HOUSE_OF_BLUES;
+		map_location[50][54] = FOGGY_FOREST;
 	}
 };
 
@@ -231,6 +231,15 @@ struct Player : public Entity
             case Map::KHATHARRS_MOMS_HOUSE:
                 cout << "The house is gigantic! What could possibly require such volume, such mass, such density? The house appears to not have any doors, but due to the strain from whatever is present inside, cracks have formed. You see a crack you might just fit into east." << endl;
                 break;
+			case Map::GATES_OF_SHOGUN:
+				cout << "Here lies the Gates of the Great Shogun. Creator of A1 weaponry; able to fork stakes by a mere glare. It is said that to look into his eyes is to see your future covered in darkness. As you notice the thick red stains which cover the gates, you are reminded of the villagers' tales of sacrifices hung from these very gates. The gate has no lock. Do you enter?" << endl;
+				break;
+			case Map::HOUSE_OF_BLUES:
+				cout << "This is a place where men shed tears and pour out emotion! Of course, after 2 or 3 pints of the finest ale. The miscreants who frequent cavernous house know the warmth of beds not their own. Doors sing with laughter and a timely cry or two. Will you enter to find love?" << endl;
+				break;
+			case Map::FOGGY_FOREST:
+				cout << "Not much is known about this forest. Only that a wolf howls 3 times in the night, every night. And those who enter have never been known to return. Do you risk your life for adventure?" << endl;
+				break;
         }
     }
 
