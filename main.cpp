@@ -267,7 +267,9 @@ private:
 struct Room {
 	string describe() {
     stringstream ss;
-		return ss.str(); //description << list entites, list items, list exits
+    ss << description << "\n";
+    ss << "Entities: "; for(auto& ent : entities) { ss << ent->name << ", "; } //make this look nice later
+		return ss.str();
 	}
 	string description;
 	vector<unique_ptr<Entity>> entities;
