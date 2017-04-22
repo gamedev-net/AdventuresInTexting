@@ -128,7 +128,7 @@ struct TheFastcall : public Entity
 };
 */
 
-typedef bool (*actionHandler)(vector<string> commands);
+typedef bool (*actionHandlerBYEBYENAMECOLLISION)(vector<string> commands); // unused, but we can't technically delete this, and commenting it out is just cheating.
 
 struct Player : public Entity
 {
@@ -257,7 +257,7 @@ struct Player : public Entity
 
 private:
     vector<shared_ptr<Item>> inventory;
-    unordered_map<string, actionHandler> actions;
+    unordered_map<string, function<bool(vector<string> commands)>> actions;
 };
 
 struct Room {
