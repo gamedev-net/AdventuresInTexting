@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <cstring>
 #include <unordered_map>
+#include <functional>
 
 using namespace std;
 
@@ -257,7 +258,7 @@ struct Player : public Entity
 
 private:
     vector<shared_ptr<Item>> inventory;
-    unordered_map<string, function<bool(vector<string> commands)>> actions;
+    unordered_map<string, function<bool(vector<string>)>> actions;
 };
 
 struct Room {
