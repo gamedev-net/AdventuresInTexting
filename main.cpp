@@ -188,8 +188,8 @@ struct Player : public Entity
 			return false;
 		if ((map.y <= 0 && direction == "south") || (map.y >= (map.max_width - 1) && direction == "north"))
 			return false;
-        if(direction=="north"&&map.map_location[map.x][map.y+1]==Map::UNKNOWN)return false;if(direction=="south"&&map.map_location[map.x][map.y-1]==Map::UNKNOWN)return false;if(direction=="east"&&map.map_location[map.x+1][map.y]==Map::UNKNOWN)return false
-        ;if(direction=="west"&&map.map_location[map.x-1][map.y]==Map::UNKNOWN)return false;if(direction=="north")map.y++;if(direction=="south")map.y--;if(direction=="east")map.x++;if(direction=="west")map.x--;
+		if ((direction == "north"&&map.map_location[map.x][map.y + 1] == Map::UNKNOWN) || (direction == "south"&&map.map_location[map.x][map.y - 1] == Map::UNKNOWN) || (direction == "east"&&map.map_location[map.x + 1][map.y] == Map::UNKNOWN)||(direction=="west"&&map.map_location[map.x-1][map.y]==Map::UNKNOWN))return false;
+		if (direction == "north")map.y++; if (direction == "south")map.y--; if (direction == "east")map.x++; if (direction == "west")map.x--;
         return true;/*
         switch (map.map_location[map.x][map.y])
         {
