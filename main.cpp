@@ -170,7 +170,9 @@ struct Player : public Entity
 {
     Player(string name, int health) : Entity(name, health) 
     {
+        currentLocation = Map::Location::GRAVEYARD;
         map.rooms[Map::Location::GRAVEYARD] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Graveyard description"));
+        map.rooms[Map::Location::GRAVEYARD]->exits["north"] = Map::Location::GRAVEYARD_GATES;
         map.rooms[Map::Location::GRAVEYARD_GATES] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Graveyard gates description"));
         map.rooms[Map::Location::KHATHARRS_MOMS_HOUSE] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Moms house"));
         map.rooms[Map::Location::GATES_OF_SHOGUN] = unique_ptr<Room>(new Room(Map::Location::GRAVEYARD, "Gates of shogun"));
