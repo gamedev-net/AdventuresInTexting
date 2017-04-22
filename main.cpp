@@ -285,7 +285,9 @@ struct Player : public Entity
             return true;
         }
 	else if (commands.size() >= 1)
-	{}
+	{
+	    return actions[commands[0]](*this, commands);
+	}
 
         return false;
     }
@@ -391,7 +393,7 @@ struct Player : public Entity
 
 private:
     vector<shared_ptr<Item>> inventory;
-    unordered_map<string, function<bool(Player*, vector<string>)>> actions;
+    unordered_map<string, function<bool(Player&, vector<string>)>> actions;
 
     Map map;
 };
