@@ -87,7 +87,7 @@ struct Entity
     virtual bool act(vector<string> commands) = 0;
 
     string name;
-    Map map;
+    //Map map;
 
 private:
     int health;
@@ -278,6 +278,8 @@ struct Player : public Entity
 private:
     vector<shared_ptr<Item>> inventory;
     unordered_map<string, function<bool(vector<string>)>> actions;
+
+    Map map;
 };
 
 struct Room {
