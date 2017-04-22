@@ -255,11 +255,11 @@ struct Player : public Entity
         if(cmd == "e") { commands = vector<string>{"go","east"}; }
         if(cmd == "w") { commands = vector<string>{"go","west"}; }
 
-        /*if (commands.size() >= 1 && commands[0] == "look")
+        if (commands.size() >= 1 && commands[0] == "look")
         {
             look();
             return true;
-        }*/
+        }
         else if (commands.size() >= 2 && (commands[0] == "examine" || commands[0] == "x"))
         {
         }
