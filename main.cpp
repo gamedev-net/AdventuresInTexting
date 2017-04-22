@@ -198,7 +198,7 @@ struct GraveyardGates : public Room
 
 struct KhatharrsMomsHouse : public Room
 {
-    KhatharrsMomsHouse() : Room(Map::Location::KHATHARRS_MOMS_HOUSE, "The house is gigantic! What could possibly require such volume, such mass, such density? The house appears to not have any doors, but due to the strain from whatever is present inside, cracks have formed. You see a crack you might just fit into east.")
+    KhatharrsMomsHouse() : Room(Map::Location::KHATHARRS_MOMS_HOUSE, "The house is gigantic! What could possibly require such volume, such mass, such density? The house appears to not have any doors, but due to the strain from whatever is present inside, cracks have formed. You see a crack you might just fit into.")
     {
         exits["south"] = Map::Location::GRAVEYARD_GATES;
         exits["east"] = Map::Location::GATES_OF_SHOGUN;
