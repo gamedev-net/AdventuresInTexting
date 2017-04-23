@@ -461,7 +461,7 @@ bool look(Player& player, vector<string> commands)
     player.look(); return true;
 }
 
-bool move(Player& player, vector<string> commands)
+bool doMove(Player& player, vector<string> commands)
 {
     if (commands.size() < 2) { cout << "Can't travel " << commands[1] << endl; return false; }
     player.travel(commands[1]); return true;
@@ -481,8 +481,8 @@ public:
         Player player(command, 100);
 	player.registerAction("smack", smack);
 	player.registerAction("look", look);
-	player.registerAction("move", move);
-	player.registerAction("go", move);
+	player.registerAction("move", doMove);
+	player.registerAction("go", doMove);
         player.addItem(make_shared<HealthItem>(20));
 	player.addItem(make_shared<BlessedSword>(10));
 
