@@ -29,11 +29,11 @@ string listThings(vector<string> things, bool articles = false) {
   stringstream ss;
 
   if(!things.empty()) {
-  size_t lastIndex = things.size() - 1;
-  for(size_t i = 0; i < lastIndex; i++) {
-    if(articles) {  }
-    ss << things[i] << ", ";
-    //if(i < lastIndex) { ss << ", "; }
+    size_t lastIndex = things.size() - 1;
+    for(size_t i = 0; i < lastIndex; i++) {
+      if(articles) {  }
+      ss << things[i] << ", ";
+      //if(i < lastIndex) { ss << ", "; }
     }
     ss << "and ";
     ss << things[lastIndex];
