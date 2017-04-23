@@ -26,7 +26,8 @@ vector<string> split(const string& str) {
 string getArticle(string word) {
   static const vector<char> vowels = { 'a', 'e', 'i', 'o', 'u' };
   auto iter = std::find(vowels.begin(), vowels.end(), word[0]);
-  return "a";
+  if(iter == vowels.end()) { return "a"; }
+  return "an";
 }
 
 string listThings(vector<string> things, bool articles = false) {
@@ -35,11 +36,13 @@ string listThings(vector<string> things, bool articles = false) {
   if(!things.empty()) {
     size_t lastIndex = things.size() - 1;
     for(size_t i = 0; i < lastIndex; i++) {
-      if(articles) {  }
+      if(articles) { ss << getArticle(things[i]); }
       ss << things[i] << ", ";
       //if(i < lastIndex) { ss << ", "; }
     }
+
     ss << "and ";
+    if(articles) { ss << getArticle(things[lastIndex]); }
     ss << things[lastIndex];
   }
   
