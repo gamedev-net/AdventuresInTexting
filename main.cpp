@@ -23,7 +23,11 @@ vector<string> split(const string& str) {
     return tokens;
 }
 
-string getArticle(string word);
+string getArticle(string word) {
+  static const vector<char> vowels = { 'a', 'e', 'i', 'o', 'u' };
+  auto iter = std::find(vowels.begin(), vowels.end(), word[0]);
+  return "a";
+}
 
 string listThings(vector<string> things, bool articles = false) {
   stringstream ss;
