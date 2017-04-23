@@ -26,13 +26,14 @@ vector<string> split(const string& str) {
 
 string listThings(vector<string> things, bool articles = false) {
   stringstream ss;
-  size_t lastIndex = things.size() - 2;
-  for(size_t i = 0; i < things.size(); i++) {
+  size_t lastIndex = things.size() - 1;
+  for(size_t i = 0; i < lastIndex; i++) {
     if(articles) {
     }
-    ss << things[i];
-    if(i < lastIndex) { ss << ", "; }
+    ss << things[i] << ", ";
+    //if(i < lastIndex) { ss << ", "; }
   }
+  ss << things[lastIndex];
   return ss.str();
 } //work in progress
 
