@@ -37,11 +37,13 @@ string listThings(vector<string> things, bool articles = false) {
     size_t lastIndex = things.size() - 1;
     for(size_t i = 0; i < lastIndex; i++) {
       if(articles) { ss << getArticle(things[i]); }
-      ss << things[i] << ", ";
+      ss << things[i];
+      if(things.size() > 2) { ss << ","; }
+      ss << " ";
       //if(i < lastIndex) { ss << ", "; }
     }
 
-    ss << "and ";
+    if(things.size() > 1) { ss << "and "; }
     if(articles) { ss << getArticle(things[lastIndex]); }
     ss << things[lastIndex];
   }
@@ -290,6 +292,7 @@ struct Player : public Entity
 
     bool act(vector<string> commands) override
     {
+      if(commands.empty()) { return false; }  
         auto cmd = commands[0];
         if(cmd == "n") { commands = vector<string>{"go","north"}; }
         if(cmd == "s") { commands = vector<string>{"go","south"}; }
