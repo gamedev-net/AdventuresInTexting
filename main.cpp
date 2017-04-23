@@ -470,11 +470,6 @@ bool doMove(Player& player, vector<string> commands)
     player.travel(commands[1]); return true;
 }
 
-bool showInventory(Player& player, vector<string> commands)
-{
-    player.showItems(); return true;
-}
-
 class Adventure
 {
 public:
@@ -490,7 +485,6 @@ public:
 	player.registerAction("look", look);
 	player.registerAction("move", doMove);
 	player.registerAction("go", doMove);
-	player.registerAction("items", showInventory);
         player.addItem(make_shared<HealthItem>(20));
 	player.addItem(make_shared<BlessedSword>(10));
 
