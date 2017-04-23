@@ -23,17 +23,19 @@ vector<string> split(const string& str) {
     return tokens;
 }
 
+string getArticle(string word);
 
 string listThings(vector<string> things, bool articles = false) {
   stringstream ss;
+  if(!things.empty()) {
   size_t lastIndex = things.size() - 1;
   for(size_t i = 0; i < lastIndex; i++) {
-    if(articles) {
-    }
+    if(articles) {  }
     ss << things[i] << ", ";
     //if(i < lastIndex) { ss << ", "; }
   }
   ss << things[lastIndex];
+  }
   return ss.str();
 } //work in progress
 
