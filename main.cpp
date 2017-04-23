@@ -298,7 +298,7 @@ struct Player : public Entity
             look();
             return true;
         }
-        else */if (commands.size() >= 2 && (commands[0] == "examine" || commands[0] == "x"))
+        else if (commands.size() >= 2 && (commands[0] == "examine" || commands[0] == "x"))
         {
         }
         else if (commands.size() >= 2 && commands[0] == "go")
@@ -309,7 +309,7 @@ struct Player : public Entity
             }
             return true;
         }
-        else if (commands.size() >= 1 && commands[0] == "items")
+        else */if (commands.size() >= 1 && commands[0] == "items")
         {
             showItems();
             return true;
@@ -460,7 +460,7 @@ bool look(Player& player, vector<string> commands)
 
 bool move(Player& player, vector<string> commands)
 {
-    if (commands.size() < 2) return false;
+    if (commands.size() < 2) { cout << "Can't travel " << commands[1] << endl; return false; }
     player.travel(commands[1]); return true;
 }
 
@@ -478,6 +478,8 @@ public:
         Player player(command, 100);
 	player.registerAction("smack", smack);
 	player.registerAction("look", look);
+	player.registerAction("move", move);
+	player.registerAction("go", move);
         player.addItem(make_shared<HealthItem>(20));
 	player.addItem(make_shared<BlessedSword>(10));
 
