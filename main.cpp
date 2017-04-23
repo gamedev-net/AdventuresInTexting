@@ -47,7 +47,7 @@ string listThings(vector<string> things, bool articles = false) {
   }
   
   return ss.str();
-} //work in progress
+}
 
 using RoomID = int;
 
@@ -193,9 +193,9 @@ struct Room {
     virtual string describe() {
         stringstream ss;
         ss << description << "\n";
-        ss << "Entities: "; for (auto& ent : entities) { ss << ent->name << ", "; }; ss << "\n"; //make this look nice later
-        ss << "Items: "; for (auto& obj : objects) { ss << obj.names[0] << ", "; }; ss << "\n";  //make this look nice later
-        ss << "Obvious exits: "; for (auto kv : exits) { ss << kv.first << ", "; } ss << "\n"; //...
+        ss << "Entities: "; vector<string> entNames; for(auto& ent : entities) { entNames.push_back(ent->name); }; ss << listThings(entNames) << "\n";
+        ss << "Items: "; vector<string> objNames; for(auto& obj : objects) { objNames.push_back(obj.names[0]); }; ss << listThings(objNames, true) << "\n";
+        ss << "Obvious exits: "; vector<string> exitNames; for(auto kv : exits) { exitNames.push_back(kv.first); }; ss << listThings(exitNames) << "\n";
         return ss.str();
     }
     const RoomID ID; //unique id of the room
