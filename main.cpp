@@ -323,7 +323,7 @@ struct Player : public Entity
             useItem(index);
             return true;
         }
-	else else if (commands.size() >= 1 && actions.find(commands[0]) != actions.end())
+	else if (commands.size() >= 1 && actions.find(commands[0]) != actions.end())
 	{
 	    return actions[commands[0]](*this, commands);
 	}
