@@ -1,6 +1,7 @@
 #include "string_tools.h"
 
 #include <sstream>
+#include <algorithm>
 
 std::vector<std::string> split(const std::string& str) {
   std::string buf; // Have a buffer string
