@@ -1,7 +1,9 @@
 #pragma once
-#include "Entity.h"
 #include <vector>
 #include <string>
+#include <limits>
+
+#include "Entity.h"
 
 struct Shogun : public Entity
 {
